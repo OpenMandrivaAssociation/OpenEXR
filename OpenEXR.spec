@@ -64,6 +64,9 @@ autoconf
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
+# Remove doc files installed by make install, we package them in %files
+rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}-%{version}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
