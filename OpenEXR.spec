@@ -63,7 +63,7 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 # Remove doc files installed by make install, we package them in %files
-rm -rf %{buildroot}%{_datadir}/doc/%{name}-%{version}
+rm -rf %{buildroot}%{_docdir}/%{name}-%{version}
 
 %clean
 rm -rf %{buildroot}
