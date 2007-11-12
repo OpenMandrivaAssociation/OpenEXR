@@ -1,7 +1,7 @@
 %define name	OpenEXR
 %define fname	openexr
-%define version	1.6.0
-%define	fver	1.6.0
+%define version	1.6.1
+%define	fver	1.6.1
 %define release %mkrel 1
 
 %define major		6
