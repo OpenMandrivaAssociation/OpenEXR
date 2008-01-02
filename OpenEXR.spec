@@ -22,8 +22,7 @@ URL:		http://www.openexr.com
 License:	BSD
 Group:		Graphics
 BuildRequires:	fltk-devel
-BuildRequires:	autoconf
-BuildRequires:	ilmbase-devel
+BuildRequires:	libilmbase-devel
 
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand for higher color
@@ -72,7 +71,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog LICENSE NEWS README doc/*
+%doc AUTHORS ChangeLog NEWS README doc/*
 %{_bindir}/*
 
 %files -n %{libname}
