@@ -21,6 +21,7 @@ Patch0:		openexr-1.6.0-threads.patch
 URL:		http://www.openexr.com
 License:	BSD
 Group:		Graphics
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	fltk-devel
 BuildRequires:	libilmbase-devel
 
