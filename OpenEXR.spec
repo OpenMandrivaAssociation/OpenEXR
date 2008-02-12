@@ -26,8 +26,8 @@ BuildRequires:	fltk-devel
 BuildRequires:	libilmbase-devel
 
 %description
-Industrial Light & Magic developed the OpenEXR format in response to the demand for higher color
-fidelity in the visual effects industry.
+Industrial Light & Magic developed the OpenEXR format in response to the demand
+for higher color fidelity in the visual effects industry.
 
 %package -n %{libname}
 Summary:	Dynamic libraries from %name
