@@ -2,7 +2,7 @@
 %define fname	openexr
 %define version	1.6.1
 %define	fver	1.6.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major		6
 %define libname		%mklibname %{name} %{major}
@@ -18,6 +18,7 @@ Source:		http://savannah.nongnu.org/download/openexr/%{fname}-%{fver}.tar.bz2
 # against this library would cause undefined references to pthreads
 # stuff, in e.g. pfstools - AdamW 2007/08
 Patch0:		openexr-1.6.0-threads.patch
+Patch2: openexr-1.6.1-gcc43.patch
 URL:		http://www.openexr.com
 License:	BSD
 Group:		Graphics
@@ -51,6 +52,7 @@ Libraries and includes files for developing programs based on %name.
 %prep
 %setup -q -n %{fname}-%{version}
 %patch0 -p1 -b .threads
+%patch2 -p1 -b .gcc43
 ./bootstrap
 
 %build
