@@ -10,7 +10,7 @@
 Name:		%{name}
 Summary:	A high dynamic-range (HDR) image file format
 Version:	%{version}
-Release:	%mkrel 4
+Release:	%mkrel 5
 Source:		http://savannah.nongnu.org/download/openexr/%{fname}-%{fver}.tar.bz2
 # Switches detection order in acinclude.m4 so that -lpthread will be
 # used rather than -pthread: this is to fix a problem where building
