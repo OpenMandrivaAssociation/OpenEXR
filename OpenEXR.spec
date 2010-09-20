@@ -1,7 +1,7 @@
 %define name	OpenEXR
 %define fname	openexr
-%define version	1.6.1
-%define	fver	1.6.1
+%define version	1.7.0
+%define	fver	1.7.0
 
 %define major		6
 %define libname		%mklibname %{name} %{major}
@@ -10,17 +10,9 @@
 Name:		%{name}
 Summary:	A high dynamic-range (HDR) image file format
 Version:	%{version}
-Release:	%mkrel 5
-Source:		http://savannah.nongnu.org/download/openexr/%{fname}-%{fver}.tar.bz2
-# Switches detection order in acinclude.m4 so that -lpthread will be
-# used rather than -pthread: this is to fix a problem where building
-# against this library would cause undefined references to pthreads
-# stuff, in e.g. pfstools - AdamW 2007/08
-Patch0:		openexr-1.6.0-threads.patch
-Patch2: openexr-1.6.1-gcc43.patch
-Patch3:		openexr-1.6.1-CVE-2009-1720-1.diff
-Patch4:		openexr-1.6.1-CVE-2009-1720-2.diff
-Patch5:		openexr-1.6.1-CVE-2009-1721.diff
+Release:	%mkrel 1
+Source:		http://savannah.nongnu.org/download/openexr/%{fname}-%{fver}.tar.gz
+Patch0:		openexr-1.7.0-gcc43.patch
 URL:		http://www.openexr.com
 License:	BSD
 Group:		Graphics
@@ -53,11 +45,7 @@ Libraries and includes files for developing programs based on %name.
 
 %prep
 %setup -q -n %{fname}-%{version}
-%patch0 -p1 -b .threads
-%patch2 -p1 -b .gcc43
-%patch3 -p1 -b .CVE-2009-1720-1
-%patch4 -p1 -b .CVE-2009-1720-2
-%patch5 -p1 -b .CVE-2009-1721
+%patch0 -p1 -b .gcc43
 ./bootstrap
 
 %build
