@@ -10,7 +10,7 @@
 Name:		%{name}
 Summary:	A high dynamic-range (HDR) image file format
 Version:	%{version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source:		http://savannah.nongnu.org/download/openexr/%{fname}-%{fver}.tar.gz
 Patch0:		openexr-1.7.0-gcc43.patch
 URL:		http://www.openexr.com
