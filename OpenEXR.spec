@@ -8,7 +8,7 @@
 Name:		OpenEXR
 Summary:	A high dynamic-range (HDR) image file format
 Version:	1.7.0
-Release:	4
+Release:	5
 Source:		http://savannah.nongnu.org/download/openexr/%{fname}-%{version}.tar.gz
 Patch0:		openexr-1.7.0-gcc43.patch
 Patch1:		openexr-automake-1.13.patch
