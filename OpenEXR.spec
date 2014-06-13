@@ -1,19 +1,18 @@
-%define major	6
-%define libname	%mklibname IlmImf %{major}
-%define devname	%mklibname IlmImf -d
+%define major	21
+%define devname	%mklibname IlmImf Imf_2_1 -d
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	1.7.0
-Release:	9
+Version:	2.1.0
+Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
 Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
-Patch0:		openexr-1.7.0-gcc43.patch
-Patch1:		openexr-automake-1.13.patch
 BuildRequires:	fltk-devel
-BuildRequires:	pkgconfig(IlmBase)
+BuildRequires:	pkgconfig(IlmBase) >= 2.1
+
+%libpackage IlmImf Imf_2_1 %{major}
 
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
@@ -28,18 +27,10 @@ Obsoletes:	OpenEXR < 1.7.0-5
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
 
-%package -n %{libname}
-Summary:	Dynamic libraries from %{name}
-Group:		System/Libraries
-Obsoletes:	%{_lib}OpenEXR6 < 1.7.0-5
-
-%description -n %{libname}
-Dynamic libraries from %{name}.
-
 %package -n %{devname}
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
-Requires:	%{libname} >= %{version}-%{release}
+Requires:	%{mklibname IlmImf Imf_2_1 %{major}} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{_lib}OpenEXR-devel < 1.7.0-5
 
@@ -52,8 +43,7 @@ Libraries and includes files for developing programs based on %{name}.
 ./bootstrap
 
 %build
-%configure2_5x \
-	--disable-static
+%configure
 %make
 
 %install
@@ -66,12 +56,8 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 %doc AUTHORS ChangeLog NEWS README doc/*
 %{_bindir}/exr*
 
-%files -n %{libname}
-%{_libdir}/libIlmImf.so.%{major}*
-
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
 %{_datadir}/aclocal/*.m4
 %{_libdir}/pkgconfig/*.pc
-
