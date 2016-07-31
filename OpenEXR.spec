@@ -4,7 +4,7 @@
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
 Version:	2.1.0
-Release:	7
+Release:	8
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
@@ -21,7 +21,7 @@ for higher color fidelity in the visual effects industry.
 %package utils
 Summary:	A high dynamic-range (HDR) image file format
 Group:		Graphics
-Obsoletes:	OpenEXR < 1.7.0-5
+Obsoletes:	OpenEXR < 1.7.0-6
 
 %description utils
 Industrial Light & Magic developed the OpenEXR format in response to the demand
@@ -32,7 +32,7 @@ Summary:	Header files and static libraries from %{name}
 Group:		Development/C
 Requires:	%{mklibname IlmImf Imf_2_1 %{major}} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%{_lib}OpenEXR-devel < 1.7.0-5
+Obsoletes:	%{_lib}OpenEXR-devel < 1.7.0-6
 
 %description -n %{devname}
 Libraries and includes files for developing programs based on %{name}.
