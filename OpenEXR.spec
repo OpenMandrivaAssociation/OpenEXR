@@ -1,5 +1,5 @@
 %define major 22
-%define devname %mklibname IlmImf Imf_2_2 -d
+%define devname %mklibname IlmImf_2_2 -d
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
@@ -15,7 +15,8 @@ Patch0:		openexr-2.1.0-bigendian.patch
 BuildRequires:	fltk-devel
 BuildRequires:	pkgconfig(IlmBase) >= 2.1
 
-%libpackage IlmImf Imf_2_2 %{major}
+%libpackage IlmImf 2_2 %{major}
+%libpackage IlmImfUtil 2_2 %{major}
 
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
@@ -33,7 +34,8 @@ for higher color fidelity in the visual effects industry.
 %package -n %{devname}
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
-Requires:	%{mklibname IlmImf Imf_2_2 %{major}} = %{EVRD}
+Requires:	%{mklibname IlmImf 2_2 %{major}} = %{EVRD}
+Requires:	%{mklibname IlmImfUtil 2_2 %{major}} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{_lib}OpenEXR-devel < 1.7.0-6
 
