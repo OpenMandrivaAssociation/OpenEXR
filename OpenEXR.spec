@@ -1,14 +1,17 @@
-%define major	21
-%define devname	%mklibname IlmImf Imf_2_1 -d
+%define major 21
+%define devname %mklibname IlmImf Imf_2_1 -d
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	2.1.0
-Release:	8
+Version:	2.2.0
+Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
 Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
+# fix tests for big endian arches
+# https://github.com/openexr/openexr/issues/81
+Patch0:		openexr-2.1.0-bigendian.patch
 BuildRequires:	fltk-devel
 BuildRequires:	pkgconfig(IlmBase) >= 2.1
 
@@ -53,7 +56,7 @@ Libraries and includes files for developing programs based on %{name}.
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 
 %files utils
-%doc AUTHORS ChangeLog NEWS README doc/*
+%doc AUTHORS NEWS README doc/*
 %{_bindir}/exr*
 
 %files -n %{devname}
