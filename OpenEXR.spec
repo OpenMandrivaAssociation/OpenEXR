@@ -14,6 +14,7 @@ Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
 Patch0:		openexr-2.1.0-bigendian.patch
 BuildRequires:	fltk-devel
 BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
+BuildRequires:	pkgconfig(zlib)
 
 %libpackage IlmImf 2_2 %{major}
 %libpackage IlmImfUtil 2_2 %{major}
