@@ -1,10 +1,10 @@
-%define major 22
+%define major 23
 %define devname %mklibname IlmImf_2_2 -d
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	2.2.0
-Release:	2
+Version:	2.2.1
+Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
@@ -13,7 +13,7 @@ Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
 # https://github.com/openexr/openexr/issues/81
 Patch0:		openexr-2.1.0-bigendian.patch
 BuildRequires:	fltk-devel
-BuildRequires:	pkgconfig(IlmBase) >= 2.1
+BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 
 %libpackage IlmImf 2_2 %{major}
 %libpackage IlmImfUtil 2_2 %{major}
