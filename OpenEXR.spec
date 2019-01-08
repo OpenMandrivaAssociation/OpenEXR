@@ -4,7 +4,7 @@
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
 Version:	2.2.1
-Release:	3
+Release:	4
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
@@ -44,16 +44,15 @@ Obsoletes:	%{_lib}OpenEXR-devel < 1.7.0-6
 Libraries and includes files for developing programs based on %{name}.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 ./bootstrap
 
 %build
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # Remove doc files installed by make install, we package them in %files
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
