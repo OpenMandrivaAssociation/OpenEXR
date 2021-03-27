@@ -1,4 +1,4 @@
-%define major 23
+%define major 25
 %define devname %mklibname IlmImf_2_2 -d
 
 Summary:	A high dynamic-range (HDR) image file format
