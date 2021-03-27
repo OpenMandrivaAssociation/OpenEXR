@@ -15,6 +15,7 @@ Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags
 # https://github.com/openexr/openexr/issues/81
 #Patch0:		openexr-2.1.0-bigendian.patch
 #BuildRequires:	fltk-devel
+BuildRequires:  cmake
 BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
 
@@ -49,11 +50,11 @@ Libraries and includes files for developing programs based on %{name}.
 %autosetup -p1
 
 %build
-%configure
+%cmake
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 # Remove doc files installed by make install, we package them in %files
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
