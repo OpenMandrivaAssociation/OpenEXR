@@ -1,5 +1,5 @@
 %define major 25
-%define devname %mklibname IlmImf_2_2 -d
+%define devname %mklibname IlmImf_2_5 -d
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
