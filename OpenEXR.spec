@@ -66,5 +66,4 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
-%{_datadir}/aclocal/*.m4
 %{_libdir}/pkgconfig/*.pc
