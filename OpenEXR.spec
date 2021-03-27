@@ -60,7 +60,7 @@ Libraries and includes files for developing programs based on %{name}.
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 
 %files utils
-%doc AUTHORS NEWS README doc/*
+%doc README.md doc/*
 %{_bindir}/exr*
 
 %files -n %{devname}
