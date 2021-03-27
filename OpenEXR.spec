@@ -47,7 +47,6 @@ Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %autosetup -p1
-./bootstrap
 
 %build
 %configure
