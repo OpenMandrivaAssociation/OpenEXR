@@ -13,7 +13,7 @@ Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags
 #Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
 # fix tests for big endian arches
 # https://github.com/openexr/openexr/issues/81
-Patch0:		openexr-2.1.0-bigendian.patch
+#Patch0:		openexr-2.1.0-bigendian.patch
 #BuildRequires:	fltk-devel
 BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
