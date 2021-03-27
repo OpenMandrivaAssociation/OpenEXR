@@ -3,12 +3,14 @@
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	2.2.1
-Release:	4
+Version:	2.5.5
+Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
-Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
+Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+# Mirror:
+#Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
 # fix tests for big endian arches
 # https://github.com/openexr/openexr/issues/81
 Patch0:		openexr-2.1.0-bigendian.patch
