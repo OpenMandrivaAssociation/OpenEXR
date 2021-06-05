@@ -53,7 +53,7 @@ Dynamic libraries from ilmbase.
 Summary:	Header files and static libraries from ilmbase
 Group:		Development/C
 Requires:	%{libname_ilm} = %{version}-%{release}
-Requires:	%{develname} = %{version}-%{release}
+Requires:	%{devname} = %{version}-%{release}
 Provides:	libilmbase-devel = %{version}-%{release}
 Provides:	ilmbase-devel = %{version}-%{release}
 
@@ -65,6 +65,7 @@ Summary:	Header files and static libraries from %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libname_ilm_util} = %{EVRD}
+Requires: %{develname_ilm} = %{EVRD}
 Requires: %{name} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
 
