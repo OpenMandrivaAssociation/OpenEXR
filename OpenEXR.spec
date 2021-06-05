@@ -75,6 +75,7 @@ Libraries and includes files for developing programs based on %{name}.
 
 # Remove doc files installed by make install, we package them in %files
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
+rm -rf %{buildroot}%{_docdir}/OpenEXR
 
 %files
 %{_bindir}/exr*
