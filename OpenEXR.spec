@@ -1,5 +1,11 @@
 %define major 25
-%define devname %mklibname IlmImf_2_5 -d
+%define api		2_5
+%define devname	%mklibname %{name} -d
+%define libname	%mklibname IlmImf %{api} %{major}
+%define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
+%define libname_ilm	%mklibname ilmbase %{api} %{ilm_major}
+%define develname_ilm	%mklibname ilmbase -d
+
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
@@ -9,39 +15,58 @@ License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
 Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
-# Mirror:
-#Source0:	http://savannah.nongnu.org/download/openexr/%{name}-%{version}.tar.gz
-# fix tests for big endian arches
-# https://github.com/openexr/openexr/issues/81
-#Patch0:		openexr-2.1.0-bigendian.patch
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
 BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
 
-%libpackage IlmImf 2_5 %{major}
-%libpackage IlmImfUtil 2_5 %{major}
+Provides:	OpenEXR = %{version}-%{release}
+Provides:	openexr = %{version}-%{release}
 
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
 
-%package utils
+%package libname_ilm_util
 Summary:	A high dynamic-range (HDR) image file format
 Group:		Graphics
-Obsoletes:	OpenEXR < 1.7.0-6
 
-%description utils
+%description libname_ilm_util
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
+
+%package -n	%{libname}
+Summary:	Dynamic libraries from %{name}
+Group:		System/Libraries
+
+%description -n	%{libname}
+Dynamic libraries from %{name}.
+
+%package -n	%{libname_ilm}
+Summary:	Dynamic libraries from ilmbase
+Group:		System/Libraries
+
+%description -n	%{libname_ilm}
+Dynamic libraries from ilmbase.
+
+%package -n	%{develname_ilm}
+Summary:	Header files and static libraries from ilmbase
+Group:		Development/C
+Requires:	%{libname_ilm} = %{version}-%{release}
+Requires:	%{develname} = %{version}-%{release}
+Provides:	libilmbase-devel = %{version}-%{release}
+Provides:	ilmbase-devel = %{version}-%{release}
+
+%description -n	%{develname_ilm}
+Libraries and includes files for developing programs based on ilmbase.
 
 %package -n %{devname}
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
-Requires:	%{mklibname IlmImf 2_5 %{major}} = %{EVRD}
-Requires:	%{mklibname IlmImfUtil 2_5 %{major}} = %{EVRD}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{libname_ilm_util} = %{EVRD}
+Requires: %{name} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%{_lib}OpenEXR-devel < 1.7.0-6
 
 %description -n %{devname}
 Libraries and includes files for developing programs based on %{name}.
@@ -59,11 +84,50 @@ Libraries and includes files for developing programs based on %{name}.
 # Remove doc files installed by make install, we package them in %files
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 
-%files utils
-%doc README.md doc/*
+%files
 %{_bindir}/exr*
 
+%files utils
+%doc README.md doc/*
+
+%files -n %{libname}
+%{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
+
+%files -n %{libname_ilm_util}
+%{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
+
+%files -n %{libname_ilm}
+%{_libdir}/libHalf-%{api}.so.%{ilm_major}{,.*}
+%{_libdir}/libIex-%{api}.so.%{ilm_major}{,.*}
+%{_libdir}/libIexMath-%{api}.so.%{ilm_major}{,.*}
+%{_libdir}/libIlmThread-%{api}.so.%{ilm_major}{,.*}
+%{_libdir}/libImath-%{api}.so.%{ilm_major}{,.*}
+
 %files -n %{devname}
-%{_includedir}/*
-%{_libdir}/*.so
-%{_libdir}/pkgconfig/*.pc
+%dir %{_includedir}/OpenEXR
+%{_includedir}/OpenEXR/Imf*.h
+%{_includedir}/OpenEXR/OpenEXRConfig.h
+%{_libdir}/libIlmImf.so
+%{_libdir}/libIlmImf-%{api}.so
+%{_libdir}/libIlmImfUtil.so
+%{_libdir}/libIlmImfUtil-%{api}.so
+%{_libdir}/pkgconfig/OpenEXR.pc
+%{_libdir}/cmake/OpenEXR/
+
+%files -n %{develname_ilm}
+%{_includedir}/OpenEXR/half*.h
+%{_includedir}/OpenEXR/Iex*.h
+%{_includedir}/OpenEXR/Ilm*.h
+%{_includedir}/OpenEXR/Imath*.h
+%{_libdir}/libHalf.so
+%{_libdir}/libHalf-%{api}.so
+%{_libdir}/libIex.so
+%{_libdir}/libIex-%{api}.so
+%{_libdir}/libIexMath.so
+%{_libdir}/libIexMath-%{api}.so
+%{_libdir}/libIlmThread.so
+%{_libdir}/libIlmThread-%{api}.so
+%{_libdir}/libImath.so
+%{_libdir}/libImath-%{api}.so
+%{_libdir}/pkgconfig/IlmBase.pc
+%{_libdir}/cmake/IlmBase/
