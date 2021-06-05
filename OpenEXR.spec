@@ -78,7 +78,8 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 
 %files
 %{_bindir}/exr*
-%doc README.md doc/*
+%doc *.md CODEOWNERS
+%doc doc/*
 
 %files -n %{libname}
 %{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
