@@ -23,8 +23,6 @@ BuildRequires:	pkgconfig(zlib)
 Provides:	OpenEXR = %{version}-%{release}
 Provides:	openexr = %{version}-%{release}
 
-Obsoletes openexr-utils < 2.5.5
-
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
