@@ -23,6 +23,8 @@ BuildRequires:	pkgconfig(zlib)
 Provides:	OpenEXR = %{version}-%{release}
 Provides:	openexr = %{version}-%{release}
 
+Obsoletes openexr-utils < 2.5.5
+
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
@@ -40,13 +42,6 @@ Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
 
 %description -n	%{libname}
-Dynamic libraries from %{name}.
-
-%package -n	utils
-Summary:	Dynamic libraries from %{name}
-Group:		System/Libraries
-
-%description -n	utils
 Dynamic libraries from %{name}.
 
 %package -n	%{libname_ilm}
@@ -94,8 +89,6 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 
 %files
 %{_bindir}/exr*
-
-%files utils
 %doc README.md doc/*
 
 %files -n %{libname}
