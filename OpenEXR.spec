@@ -3,7 +3,7 @@
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname IlmImf %{api} %{major}
 %define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
-%define libname_ilm	%mklibname ilmbase %{api} %{ilm_major}
+%define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase -d
 
 
