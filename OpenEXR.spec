@@ -2,7 +2,7 @@
 %define api		2_5
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname IlmImf %{api} %{major}
-%define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
+#define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
 %define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase -d
 
@@ -24,14 +24,6 @@ Provides:	OpenEXR = %{version}-%{release}
 Provides:	openexr = %{version}-%{release}
 
 %description
-Industrial Light & Magic developed the OpenEXR format in response to the demand
-for higher color fidelity in the visual effects industry.
-
-%package libname_ilm_util
-Summary:	A high dynamic-range (HDR) image file format
-Group:		Graphics
-
-%description libname_ilm_util
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
 
@@ -64,7 +56,6 @@ Libraries and includes files for developing programs based on ilmbase.
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
-Requires:	%{libname_ilm_util} = %{EVRD}
 Requires: %{develname_ilm} = %{EVRD}
 Requires: %{name} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
@@ -91,8 +82,6 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 
 %files -n %{libname}
 %{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
-
-%files -n %{libname_ilm_util}
 %{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
 
 %files -n %{libname_ilm}
