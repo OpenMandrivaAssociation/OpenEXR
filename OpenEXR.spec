@@ -42,6 +42,13 @@ Group:		System/Libraries
 %description -n	%{libname}
 Dynamic libraries from %{name}.
 
+%package -n	%{name}-utils
+Summary:	Dynamic libraries from %{name}
+Group:		System/Libraries
+
+%description -n	%{name}-utils
+Dynamic libraries from %{name}.
+
 %package -n	%{libname_ilm}
 Summary:	Dynamic libraries from ilmbase
 Group:		System/Libraries
@@ -88,7 +95,7 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
 %files
 %{_bindir}/exr*
 
-%files utils
+%files %{name}-utils
 %doc README.md doc/*
 
 %files -n %{libname}
