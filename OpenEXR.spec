@@ -98,10 +98,10 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %dir %{_includedir}/OpenEXR
 %{_includedir}/OpenEXR/Imf*.h
 %{_includedir}/OpenEXR/OpenEXRConfig.h
-%{_libdir}/libIlmImf.so
-%{_libdir}/libIlmImf-%{api}.so
-%{_libdir}/libIlmImfUtil.so
-%{_libdir}/libIlmImfUtil-%{api}.so
+#{_libdir}/libIlmImf.so
+#{_libdir}/libIlmImf-%{api}.so
+#{_libdir}/libIlmImfUtil.so
+#{_libdir}/libIlmImfUtil-%{api}.so
 %{_libdir}/pkgconfig/OpenEXR.pc
 %{_libdir}/cmake/OpenEXR/
 
