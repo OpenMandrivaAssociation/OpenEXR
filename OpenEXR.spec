@@ -88,9 +88,9 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 #{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
 
 %files -n %{libname_ilm}
-%{_libdir}/libHalf-%{api}.so.%{major}{,.*}
+#{_libdir}/libHalf-%{api}.so.%{major}{,.*}
 %{_libdir}/libIex-%{api}.so.%{major}{,.*}
-%{_libdir}/libIexMath-%{api}.so.%{major}{,.*}
+#{_libdir}/libIexMath-%{api}.so.%{major}{,.*}
 %{_libdir}/libIlmThread-%{api}.so.%{major}{,.*}
 %{_libdir}/libImath-%{api}.so.%{major}{,.*}
 
