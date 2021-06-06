@@ -84,8 +84,8 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 #doc doc/*
 
 %files -n %{libname}
-%{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
-%{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
+#{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
+#{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
 
 %files -n %{libname_ilm}
 %{_libdir}/libHalf-%{api}.so.%{major}{,.*}
