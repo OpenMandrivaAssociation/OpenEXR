@@ -106,19 +106,19 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %{_libdir}/cmake/OpenEXR/
 
 %files -n %{develname_ilm}
-%{_includedir}/OpenEXR/half*.h
+#{_includedir}/OpenEXR/half*.h
 %{_includedir}/OpenEXR/Iex*.h
 %{_includedir}/OpenEXR/Ilm*.h
-%{_includedir}/OpenEXR/Imath*.h
-%{_libdir}/libHalf.so
-%{_libdir}/libHalf-%{api}.so
+#{_includedir}/OpenEXR/Imath*.h
+#{_libdir}/libHalf.so
+#{_libdir}/libHalf-%{api}.so
 %{_libdir}/libIex.so
 %{_libdir}/libIex-%{api}.so
-%{_libdir}/libIexMath.so
-%{_libdir}/libIexMath-%{api}.so
+#{_libdir}/libIexMath.so
+#{_libdir}/libIexMath-%{api}.so
 %{_libdir}/libIlmThread.so
 %{_libdir}/libIlmThread-%{api}.so
 %{_libdir}/libImath.so
 %{_libdir}/libImath-%{api}.so
-%{_libdir}/pkgconfig/IlmBase.pc
-%{_libdir}/cmake/IlmBase/
+#{_libdir}/pkgconfig/IlmBase.pc
+#{_libdir}/cmake/IlmBase/
