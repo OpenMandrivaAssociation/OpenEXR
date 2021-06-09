@@ -30,10 +30,10 @@ for higher color fidelity in the visual effects industry.
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
 
-Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
-Obsoletes: %{_lib}IlmImfUtil2_2_23 =< 3.0.4
-Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
-Obsoletes: %{_lib}IlmThread2_2_23 =< 3.0.4
+#Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
+#Obsoletes: %{_lib}IlmImfUtil2_2_23 =< 3.0.4
+#Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
+#Obsoletes: %{_lib}IlmThread2_2_23 =< 3.0.4
 
 %description -n	%{libname}
 Dynamic libraries from %{name}.
