@@ -1,9 +1,7 @@
 %define major 28
 %define api		3_0
 %define devname	%mklibname %{name} -d
-#define libname	%mklibname IlmImf %{api} %{major}
 %define libname	%mklibname openexr %{api} %{major}
-#define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
 %define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase -d
 
@@ -17,10 +15,9 @@ Url:		http://www.openexr.com
 Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
-#BuildRequires:  git-core
 BuildRequires:  cmake(Imath)
-#BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:  pkgconfig(python)
 
 Provides:	OpenEXR = %{version}-%{release}
 Provides:	openexr = %{version}-%{release}
@@ -92,7 +89,6 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %files -n %{libname}
 %{_libdir}/libOpenEXR-%{api}.so.%{major}{,.*}
 %{_libdir}/libOpenEXRUtil-%{api}.so.%{major}{,.*}
-
 
 %files -n %{libname_ilm}
 %{_libdir}/libIex-%{api}.so.%{major}{,.*}
