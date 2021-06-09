@@ -2,11 +2,10 @@
 %define api		3_0
 %define devname	%mklibname %{name} -d
 #define libname	%mklibname IlmImf %{api} %{major}
-%define libname	%mklibname OpenEXR %{api} %{major}
+%define libname	%mklibname openexr %{api} %{major}
 #define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
 %define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase -d
-
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
@@ -33,6 +32,11 @@ for higher color fidelity in the visual effects industry.
 %package -n	%{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
+
+Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
+Obsoletes: %{_lib}IlmImfUtil2_2_23 =< 3.0.4
+Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
+Obsoletes: %{_lib}IlmThread2_2_23 =< 3.0.4
 
 %description -n	%{libname}
 Dynamic libraries from %{name}.
@@ -91,11 +95,8 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 
 
 %files -n %{libname_ilm}
-#{_libdir}/libHalf-%{api}.so.%{major}{,.*}
 %{_libdir}/libIex-%{api}.so.%{major}{,.*}
-#{_libdir}/libIexMath-%{api}.so.%{major}{,.*}
 %{_libdir}/libIlmThread-%{api}.so.%{major}{,.*}
-#{_libdir}/libImath-%{api}.so.%{major}{,.*}
 
 %files -n %{devname}
 %dir %{_includedir}/OpenEXR
@@ -105,27 +106,13 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %{_libdir}/libOpenEXR-%{api}.so
 %{_libdir}/libOpenEXRUtil.so
 %{_libdir}/libOpenEXRUtil-%{api}.so
-#{_libdir}/libIlmImf.so
-#{_libdir}/libIlmImf-%{api}.so
-#{_libdir}/libIlmImfUtil.so
-#{_libdir}/libIlmImfUtil-%{api}.so
 %{_libdir}/pkgconfig/OpenEXR.pc
 %{_libdir}/cmake/OpenEXR/
 
 %files -n %{develname_ilm}
-#{_includedir}/OpenEXR/half*.h
 %{_includedir}/OpenEXR/Iex*.h
 %{_includedir}/OpenEXR/Ilm*.h
-#{_includedir}/OpenEXR/Imath*.h
-#{_libdir}/libHalf.so
-#{_libdir}/libHalf-%{api}.so
 %{_libdir}/libIex.so
 %{_libdir}/libIex-%{api}.so
-#{_libdir}/libIexMath.so
-#{_libdir}/libIexMath-%{api}.so
 %{_libdir}/libIlmThread.so
 %{_libdir}/libIlmThread-%{api}.so
-#{_libdir}/libImath.so
-#{_libdir}/libImath-%{api}.so
-#{_libdir}/pkgconfig/IlmBase.pc
-#{_libdir}/cmake/IlmBase/
