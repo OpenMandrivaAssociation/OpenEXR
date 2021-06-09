@@ -1,7 +1,8 @@
 %define major 28
 %define api		3_0
 %define devname	%mklibname %{name} -d
-%define libname	%mklibname IlmImf %{api} %{major}
+#define libname	%mklibname IlmImf %{api} %{major}
+%define libname	%mklibname OpenEXR %{api} %{major}
 #define libname_ilm_util	%mklibname IlmImfUtil %{api} %{major}
 %define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase -d
@@ -85,8 +86,9 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 #doc doc/*
 
 %files -n %{libname}
-#{_libdir}/libIlmImf-%{api}.so.%{major}{,.*}
-#{_libdir}/libIlmImfUtil-%{api}.so.%{major}{,.*}
+%{_libdir}/libOpenEXR-%{api}.so.%{major}{,.*}
+%{_libdir}/libOpenEXRUtil-%{api}.so.%{major}{,.*}
+
 
 %files -n %{libname_ilm}
 #{_libdir}/libHalf-%{api}.so.%{major}{,.*}
@@ -99,6 +101,8 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %dir %{_includedir}/OpenEXR
 %{_includedir}/OpenEXR/Imf*.h
 %{_includedir}/OpenEXR/OpenEXRConfig.h
+%{_libdir}/libOpenEXR.so
+%{_libdir}/libOpenEXRUtil.so
 #{_libdir}/libIlmImf.so
 #{_libdir}/libIlmImf-%{api}.so
 #{_libdir}/libIlmImfUtil.so
