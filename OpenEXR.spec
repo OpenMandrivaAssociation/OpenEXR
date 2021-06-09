@@ -119,7 +119,7 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 #{_libdir}/libIexMath-%{api}.so
 %{_libdir}/libIlmThread.so
 %{_libdir}/libIlmThread-%{api}.so
-%{_libdir}/libImath.so
-%{_libdir}/libImath-%{api}.so
+#{_libdir}/libImath.so
+#{_libdir}/libImath-%{api}.so
 #{_libdir}/pkgconfig/IlmBase.pc
 #{_libdir}/cmake/IlmBase/
