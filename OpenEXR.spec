@@ -93,7 +93,7 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %{_libdir}/libIex-%{api}.so.%{major}{,.*}
 #{_libdir}/libIexMath-%{api}.so.%{major}{,.*}
 %{_libdir}/libIlmThread-%{api}.so.%{major}{,.*}
-%{_libdir}/libImath-%{api}.so.%{major}{,.*}
+#{_libdir}/libImath-%{api}.so.%{major}{,.*}
 
 %files -n %{devname}
 %dir %{_includedir}/OpenEXR
