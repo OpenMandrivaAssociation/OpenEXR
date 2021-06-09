@@ -102,7 +102,9 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %{_includedir}/OpenEXR/Imf*.h
 %{_includedir}/OpenEXR/OpenEXRConfig.h
 %{_libdir}/libOpenEXR.so
+%{_libdir}/libOpenEXR-%{api}.so
 %{_libdir}/libOpenEXRUtil.so
+%{_libdir}/libOpenEXRUtil-%{api}.so
 #{_libdir}/libIlmImf.so
 #{_libdir}/libIlmImf-%{api}.so
 #{_libdir}/libIlmImfUtil.so
