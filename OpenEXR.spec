@@ -17,7 +17,8 @@ Url:		http://www.openexr.com
 Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
-BuildRequires:  git-core
+#BuildRequires:  git-core
+BuildRequires:  cmake(Imath)
 #BuildRequires:	pkgconfig(IlmBase) >= 2.2.1
 BuildRequires:	pkgconfig(zlib)
 
