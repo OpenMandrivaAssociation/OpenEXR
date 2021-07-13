@@ -1,4 +1,4 @@
-%define major 28
+%define major 29
 %define api		3_0
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname openexr %{api} %{major}
@@ -7,7 +7,7 @@
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	3.0.4
+Version:	3.0.5
 Release:	1
 License:	BSD
 Group:		Graphics
