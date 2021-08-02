@@ -1,18 +1,21 @@
-%define major 29
-%define api		3_0
+%define major 30
+%define api		3_1
 %define devname	%mklibname %{name} -d
 %define libname	%mklibname openexr %{api} %{major}
+%define libname_core	%mklibname openexrcore %{api} %{major}
 %define libname_ilm	%mklibname ilmbase %{api} %{major}
 %define develname_ilm	%mklibname ilmbase -d
 
+%define oldlibname %mklibname openexr 3_0 29
+
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	3.0.5
+Version:	3.1.0
 Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
-Source0:  https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}.tar.gz
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
 BuildRequires:  cmake(Imath)
@@ -29,6 +32,7 @@ for higher color fidelity in the visual effects industry.
 %package -n	%{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
+Obsoletes:	%{oldlibname} < 3.1.0-0
 
 #Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
 #Obsoletes: %{_lib}IlmImfUtil2_2_23 =< 3.0.4
@@ -55,6 +59,13 @@ Provides:	ilmbase-devel = %{version}-%{release}
 
 %description -n	%{develname_ilm}
 Libraries and includes files for developing programs based on ilmbase.
+
+%package -n	%{libname_core}
+Summary:	Dynamic libraries for OpenEXR Core
+Group:		System/Libraries
+
+%description -n	%{libname_core}
+Dynamic libraries for OpenEXR Core
 
 %package -n %{devname}
 Summary:	Header files and static libraries from %{name}
@@ -94,12 +105,19 @@ rm -rf %{buildroot}%{_docdir}/OpenEXR
 %{_libdir}/libIex-%{api}.so.%{major}{,.*}
 %{_libdir}/libIlmThread-%{api}.so.%{major}{,.*}
 
+%files -n %{libname_core}
+%{_libdir}/libOpenEXRCore-%{api}.so.%{major}{,.*}
+
 %files -n %{devname}
 %dir %{_includedir}/OpenEXR
 %{_includedir}/OpenEXR/Imf*.h
+%{_includedir}/OpenEXR/openexr.h
+%{_includedir}/OpenEXR/openexr_*.h
 %{_includedir}/OpenEXR/OpenEXRConfig.h
 %{_libdir}/libOpenEXR.so
 %{_libdir}/libOpenEXR-%{api}.so
+%{_libdir}/libOpenEXRCore.so
+%{_libdir}/libOpenEXRCore-%{api}.so
 %{_libdir}/libOpenEXRUtil.so
 %{_libdir}/libOpenEXRUtil-%{api}.so
 %{_libdir}/pkgconfig/OpenEXR.pc
