@@ -1,0 +1,30 @@
+diff -up openexr-3.1.0/src/lib/OpenEXRCore/internal_coding.h.omv~ openexr-3.1.0/src/lib/OpenEXRCore/internal_coding.h
+--- openexr-3.1.0/src/lib/OpenEXRCore/internal_coding.h.omv~	2021-08-03 00:25:45.027896397 +0000
++++ openexr-3.1.0/src/lib/OpenEXRCore/internal_coding.h	2021-08-03 00:26:02.827654043 +0000
+@@ -24,6 +24,7 @@
+ #    include <half.h>
+ #endif
+ 
++#if defined(__x86_64__) || defined (__i386__)
+ #if defined(__has_include)
+ #    if __has_include(<x86intrin.h>)
+ #        include <x86intrin.h>
+@@ -31,6 +32,7 @@
+ #        include <intrin.h>
+ #    endif
+ #endif
++#endif
+ #include <math.h>
+ 
+ #ifdef __cplusplus
+diff -up openexr-3.1.0/src/lib/OpenEXRCore/internal_zip.c.omv~ openexr-3.1.0/src/lib/OpenEXRCore/internal_zip.c
+--- openexr-3.1.0/src/lib/OpenEXRCore/internal_zip.c.omv~	2021-08-03 00:26:24.497357729 +0000
++++ openexr-3.1.0/src/lib/OpenEXRCore/internal_zip.c	2021-08-03 00:26:33.727231108 +0000
+@@ -11,6 +11,7 @@
+ 
+ #include <limits.h>
+ #include <stdlib.h>
++#include <stdbool.h>
+ #include <string.h>
+ #include <zlib.h>
+ 

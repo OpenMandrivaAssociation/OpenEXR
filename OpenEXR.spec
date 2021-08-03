@@ -16,8 +16,10 @@ License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
 Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}.tar.gz
+Patch0:		openexr-3.1.0-non-x86.patch
 #BuildRequires:	fltk-devel
 BuildRequires:  cmake
+BuildRequires:	ninja
 BuildRequires:  cmake(Imath)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:  pkgconfig(python)
@@ -80,13 +82,13 @@ Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %autosetup -p1
+%cmake -G Ninja
 
 %build
-%cmake
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 # Remove doc files installed by make install, we package them in %files
 rm -rf %{buildroot}%{_docdir}/OpenEXR-%{version}
