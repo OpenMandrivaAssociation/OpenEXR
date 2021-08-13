@@ -1,28 +1,27 @@
 %define major 30
-%define api		3_1
-%define devname	%mklibname %{name} -d
-%define libname	%mklibname openexr %{api} %{major}
-%define libname_core	%mklibname openexrcore %{api} %{major}
-%define libname_ilm	%mklibname ilmbase %{api} %{major}
-%define develname_ilm	%mklibname ilmbase -d
+%define api 3_1
+%define devname %mklibname %{name} -d
+%define libname %mklibname openexr %{api} %{major}
+%define libname_core %mklibname openexrcore %{api} %{major}
+%define libname_ilm %mklibname ilmbase %{api} %{major}
+%define develname_ilm %mklibname ilmbase -d
 
 %define oldlibname %mklibname openexr 3_0 29
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
 Version:	3.1.0
-Release:	1
+Release:	3
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
 Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}.tar.gz
 Patch0:		openexr-3.1.0-non-x86.patch
-#BuildRequires:	fltk-devel
-BuildRequires:  cmake
+BuildRequires:	cmake
 BuildRequires:	ninja
-BuildRequires:  cmake(Imath)
+BuildRequires:	cmake(Imath)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:  pkgconfig(python)
+BuildRequires:	pkgconfig(python)
 
 Provides:	OpenEXR = %{version}-%{release}
 Provides:	openexr = %{version}-%{release}
@@ -31,27 +30,28 @@ Provides:	openexr = %{version}-%{release}
 Industrial Light & Magic developed the OpenEXR format in response to the demand
 for higher color fidelity in the visual effects industry.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
 Obsoletes:	%{oldlibname} < 3.1.0-0
+Obsoletes:	%{mklibname openexr 3_0 28} < 3.1.0-0
 
 #Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
 #Obsoletes: %{_lib}IlmImfUtil2_2_23 =< 3.0.4
 #Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
 #Obsoletes: %{_lib}IlmThread2_2_23 =< 3.0.4
 
-%description -n	%{libname}
+%description -n %{libname}
 Dynamic libraries from %{name}.
 
-%package -n	%{libname_ilm}
+%package -n %{libname_ilm}
 Summary:	Dynamic libraries from ilmbase
 Group:		System/Libraries
 
-%description -n	%{libname_ilm}
+%description -n %{libname_ilm}
 Dynamic libraries from ilmbase.
 
-%package -n	%{develname_ilm}
+%package -n %{develname_ilm}
 Summary:	Header files and static libraries from ilmbase
 Group:		Development/C
 Requires:	%{libname_ilm} = %{version}-%{release}
@@ -59,22 +59,22 @@ Requires:	%{devname} = %{version}-%{release}
 Provides:	libilmbase-devel = %{version}-%{release}
 Provides:	ilmbase-devel = %{version}-%{release}
 
-%description -n	%{develname_ilm}
+%description -n %{develname_ilm}
 Libraries and includes files for developing programs based on ilmbase.
 
-%package -n	%{libname_core}
+%package -n %{libname_core}
 Summary:	Dynamic libraries for OpenEXR Core
 Group:		System/Libraries
 
-%description -n	%{libname_core}
-Dynamic libraries for OpenEXR Core
+%description -n %{libname_core}
+Dynamic libraries for OpenEXR Core.
 
 %package -n %{devname}
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
-Requires: %{develname_ilm} = %{EVRD}
-Requires: %{name} = %{EVRD}
+Requires:	%{develname_ilm} = %{EVRD}
+Requires:	%{name} = %{EVRD}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
