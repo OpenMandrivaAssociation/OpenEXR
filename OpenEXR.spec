@@ -15,7 +15,7 @@ Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
-Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}.tar.gz
+Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 Patch0:		openexr-3.1.0-non-x86.patch
 BuildRequires:	cmake
 BuildRequires:	ninja
