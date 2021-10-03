@@ -10,13 +10,13 @@
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	3.1.0
-Release:	3
+Version:	3.1.1
+Release:	1
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
-Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}.tar.gz
-Patch0:		openexr-3.1.0-non-x86.patch
+Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(Imath)
