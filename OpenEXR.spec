@@ -1,5 +1,5 @@
-%define major 30
-%define api 3_1
+%define major 31
+%define api 3_2
 %define devname %mklibname %{name} -d
 %define libname %mklibname openexr %{api} %{major}
 %define libname_core %mklibname openexrcore %{api} %{major}
@@ -10,7 +10,7 @@
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	3.1.11
+Version:	3.2.1
 Release:	1
 License:	BSD
 Group:		Graphics
@@ -20,6 +20,7 @@ Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(Imath)
+BuildRequires:  pkgconfig(libdeflate)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python)
 
