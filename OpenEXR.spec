@@ -20,6 +20,7 @@ Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(Imath)
+BuildRequires:  pkgconfig(libdeflate)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python)
 
