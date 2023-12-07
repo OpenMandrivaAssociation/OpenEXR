@@ -1,17 +1,22 @@
 %define major 31
 %define api 3_2
 %define devname %mklibname %{name} -d
-%define libname %mklibname openexr %{api} %{major}
-%define libname_core %mklibname openexrcore %{api} %{major}
-%define libname_ilm %mklibname ilmbase %{api} %{major}
+%define libname %mklibname openexr
+%define libname_core %mklibname openexrcore
+%define libname_ilm %mklibname ilmbase
 %define develname_ilm %mklibname ilmbase -d
 
-%define oldlibname %mklibname openexr 3_0 29
+%define prehistoriclibname %mklibname openexr 3_0 28
+%define ancientlibname %mklibname openexr 3_0 29
+%define veryoldlibname %mklibname openexr 3_2 30
+%define oldlibname %mklibname openexr 3_2 31
+%define oldlibname_core %mklibname openexrcore 3_2 31
+%define oldlibname_ilm %mklibname ilmbase 3_2 31
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
 Version:	3.2.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Graphics
 Url:		http://www.openexr.com
@@ -25,7 +30,6 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python)
 
 Provides:	OpenEXR = %{version}-%{release}
-Provides:	openexr = %{version}-%{release}
 
 %description
 Industrial Light & Magic developed the OpenEXR format in response to the demand
@@ -34,13 +38,10 @@ for higher color fidelity in the visual effects industry.
 %package -n %{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
-Obsoletes:	%{oldlibname} < 3.1.0-0
-Obsoletes:	%{mklibname openexr 3_0 28} < 3.1.0-0
-
-#Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
-#Obsoletes: %{_lib}IlmImfUtil2_2_23 =< 3.0.4
-#Obsoletes: %{_lib}IlmImf2_2_23 =< 3.0.4
-#Obsoletes: %{_lib}IlmThread2_2_23 =< 3.0.4
+Obsoletes:	%{prehistoriclibname} < 3.1.0-0
+Obsoletes:	%{ancientlibname} < 3.1.0-0
+Obsoletes:	%{veryoldlibname} < 3.2.1-2
+%rename %{oldlibname}
 
 %description -n %{libname}
 Dynamic libraries from %{name}.
@@ -48,6 +49,7 @@ Dynamic libraries from %{name}.
 %package -n %{libname_ilm}
 Summary:	Dynamic libraries from ilmbase
 Group:		System/Libraries
+%rename  %{oldlibname_ilm}
 
 %description -n %{libname_ilm}
 Dynamic libraries from ilmbase.
@@ -66,6 +68,7 @@ Libraries and includes files for developing programs based on ilmbase.
 %package -n %{libname_core}
 Summary:	Dynamic libraries for OpenEXR Core
 Group:		System/Libraries
+%rename %{oldlibname_core}
 
 %description -n %{libname_core}
 Dynamic libraries for OpenEXR Core.
