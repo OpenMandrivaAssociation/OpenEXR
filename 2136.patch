@@ -125,16 +125,3 @@ Signed-off-by: Cary Phillips <cary@ilm.com>
 ---
  MODULE.bazel | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/MODULE.bazel b/MODULE.bazel
-index 055283a49..f6f90e399 100644
---- a/MODULE.bazel
-+++ b/MODULE.bazel
-@@ -9,6 +9,6 @@ module(
- bazel_dep(name = "bazel_skylib", version = "1.8.2")
- bazel_dep(name = "imath", version = "3.2.1")
- bazel_dep(name = "libdeflate", version = "1.24")
--bazel_dep(name = "openjph", version = "0.22.0")
-+bazel_dep(name = "openjph", version = "0.24.1")
- bazel_dep(name = "platforms", version = "1.0.0")
- bazel_dep(name = "rules_cc", version = "0.2.9")
