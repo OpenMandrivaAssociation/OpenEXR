@@ -21,6 +21,7 @@ License:	BSD
 Group:		Graphics
 Url:		https://www.openexr.com
 Source0:	https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+Patch0:  https://patch-diff.githubusercontent.com/raw/AcademySoftwareFoundation/openexr/pull/2136.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
