@@ -15,7 +15,7 @@
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	3.3.5
+Version:	3.4.0
 Release:	1
 License:	BSD
 Group:		Graphics
@@ -28,6 +28,7 @@ BuildRequires:	cmake(Imath)
 BuildRequires:  pkgconfig(libdeflate)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python)
+BuildRequires:  pkgconfig(openjph)
 
 Provides:	OpenEXR = %{version}-%{release}
 
