@@ -26,6 +26,7 @@ BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(Imath)
 BuildRequires:  pkgconfig(libdeflate)
+BuildRequires:  pkgconfig(OpenJPH)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(python)
 
