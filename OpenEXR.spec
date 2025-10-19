@@ -1,5 +1,5 @@
-%define major 32
-%define api 3_3
+%define major 33
+%define api 3_4
 %define devname %mklibname %{name} -d
 %define libname %mklibname openexr
 %define libname_core %mklibname openexrcore
