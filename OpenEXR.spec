@@ -15,7 +15,7 @@
 
 Summary:	A high dynamic-range (HDR) image file format
 Name:		openexr
-Version:	3.4.10
+Version:	3.4.13
 Release:	1
 License:	BSD
 Group:		Graphics
